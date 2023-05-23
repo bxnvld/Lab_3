@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+  checker:
+    build:
+      context: ./
+      dockerfile: ./DockerFile
+    volumes:
+      - ./check_web_server.sh:/check_web_server.sh

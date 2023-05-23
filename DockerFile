@@ -1,0 +1,9 @@
+FROM ubuntu
+
+RUN apt-get update && apt-get install -y curl
+
+COPY check_web_server.sh /check_web_server.sh
+
+RUN chmod +x /check_web_server.sh
+
+CMD ["/bin/bash", "-c", "/check_web_server.sh"]
