@@ -8,15 +8,9 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build and Deploy') {
             steps {
-                sh 'docker build -t image_name .'
-            }
-        }
-
-        stage('Push Docker Image') {
-            steps {
-                sh 'docker push image_name'
+                sh './check_web_server.sh'
             }
         }
     }
